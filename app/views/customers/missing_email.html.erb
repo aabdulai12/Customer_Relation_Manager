@@ -1,0 +1,8 @@
+<h1>Customers Missing Email</h1>
+<div class="customers">
+  <% if @customers.present? %>
+    <%= render @customers %>
+  <% else %>
+    <p>No customers are missing email addresses.</p>
+  <% end %>
+</div>
