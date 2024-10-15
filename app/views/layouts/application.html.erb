@@ -2,26 +2,44 @@
 <html>
   <head>
     <title><%= content_for(:title) || "Customer Relation Manager" %></title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= yield :head %>
 
+    <!-- Manifest file for PWA -->
     <link rel="manifest" href="/manifest.json">
+
+    <!-- Favicon and icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+    <!-- Stylesheets -->
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+
+    <!-- JavaScript (Uncomment if you are using the asset pipeline for JavaScript) -->
+    <%# <%= javascript_include_tag 'application' %>
+
+    <!-- Webpacker (Uncomment if you are using Webpacker for JavaScript) -->
+    <%# <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
     <%= yield %>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+    <!-- Flash messages -->
+    <% if notice.present? %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
 
+    <% if alert.present? %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
 
+    <!-- Optional footer or scripts -->
   </body>
 </html>

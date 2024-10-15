@@ -1,5 +1,5 @@
 ActiveAdmin.register Customer do
-  permit_params :full_name, :phone_number, :email_address, :notes, :image
+  permit_params :full_name, :phone_number, :email_address, :notes, :image, :province
 
   form do |f|
     f.inputs 'Customer Details' do
@@ -7,6 +7,7 @@ ActiveAdmin.register Customer do
       f.input :phone_number
       f.input :email_address
       f.input :notes
+      f.input :province
       f.input :image, as: :file
     end
     f.actions

@@ -24,5 +24,14 @@ ActiveAdmin.register AdminUser do
     end
     f.actions
   end
+  class AdminUser < ApplicationRecord
+    # Devise and other configurations
+
+    # Allowlist attributes for Ransack to search
+    def self.ransackable_attributes(auth_object = nil)
+      # List the attributes you want to allow for searching
+      ["created_at", "email", "sign_in_count", "current_sign_in_at"]
+    end
+  end
 
 end
